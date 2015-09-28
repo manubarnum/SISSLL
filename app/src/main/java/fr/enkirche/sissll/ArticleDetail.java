@@ -1,18 +1,18 @@
 package fr.enkirche.sissll;
 
 /**
- * Created by Emmanuel on 19/07/2015 à partir de http://instinctcoder.com/android-studio-sqlite-database-example/.
+ * Modified by Emmanuel on 28/09/15.
  */
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class ArticleDetail extends ActionBarActivity implements android.view.View.OnClickListener{
+public class ArticleDetail extends AppCompatActivity implements android.view.View.OnClickListener{
 
     Button btnSave ,  btnDelete;
     Button btnClose;
@@ -43,8 +43,7 @@ public class ArticleDetail extends ActionBarActivity implements android.view.Vie
         Intent intent = getIntent();
         _Article_Id =intent.getIntExtra("article_Id", 0);
         ArticleRepo repo = new ArticleRepo(this);
-        Article article = new Article();
-        article = repo.getArticleById(_Article_Id);
+        Article article = repo.getArticleById(_Article_Id);
 
         editTextQtite.setText(String.valueOf(article.qtite));
         editTextDenom.setText(article.denom);
